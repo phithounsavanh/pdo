@@ -19,9 +19,9 @@
   $statement = $pdo->prepare($sql);
   $statement->execute(['status'=>$status]);
   //get all data from the return
-  $users = $statement->fetchAll();
+  $users = $statement->fetchAll(PDO::FETCH_OBJ);
   //show data by loop
   foreach($users as $user){
-    echo $user['name'].'<br>';
+    echo $user->name.'<br>';
   }
   
